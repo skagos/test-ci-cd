@@ -25,14 +25,14 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAM }}/my-app:${{ steps.meta.outputs.TAG }} .
+          docker build -t ${{ secrets.DOCKER_USERNAM }}/test-app-goska:${{ steps.meta.outputs.TAG }} .
 
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAM }}/my-app:${{ steps.meta.outputs.TAG }}
+          docker push ${{ secrets.DOCKER_USERNAM }}/test-app-goska:${{ steps.meta.outputs.TAG }}
 
       - name: Tag as latest
         run: |
-          docker tag ${{ secrets.DOCKER_USERNAM }}/my-app:${{ steps.meta.outputs.TAG }} \
-                     ${{ secrets.DOCKER_USERNAM }}/my-app:latest
-          docker push ${{ secrets.DOCKER_USERNAM }}/my-app:latest
+          docker tag ${{ secrets.DOCKER_USERNAM }}/test-app-goska:${{ steps.meta.outputs.TAG }} \
+                     ${{ secrets.DOCKER_USERNAM }}/test-app-goska:latest
+          docker push ${{ secrets.DOCKER_USERNAM }}/test-app-goska:latest
